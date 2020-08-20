@@ -24,7 +24,7 @@ module.exports = {
           this.select('*')
             .from('languages')
             .whereRaw('classes.id = languages.classes_id')
-            .whereRaw('languages.name = ?', [filters.languages])
+            .whereRaw('languages.lang = ?', [filters.languages])
         })
         .join('users', 'classes.user_id', '=', 'users.id')
         .select(['classes.*', 'users.*'])
@@ -66,7 +66,7 @@ module.exports = {
       const classLanguages = languages.map(langItem => {
         return {
           classes_id,
-          name: langItem.name
+          lang: langItem.lang
         }
       })
 
@@ -87,7 +87,7 @@ module.exports = {
 
       return res.send()
     } catch (error) {
-      return res.status(400).send({ error: 'Error register user' })
+      return res.status(400).send({ error: "Un erreur s'est produite, vouillez réesayer" })
     }
   }
 }
