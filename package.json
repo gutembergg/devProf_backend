@@ -15,7 +15,5 @@
     "knex": "^0.21.4",
     "pg": "^8.3.0"
   },
-  "devDependencies": {
-    "morgan": "^1.10.0"
-  }
+  "devDependencies": {}
 }
