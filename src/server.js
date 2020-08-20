@@ -1,10 +1,12 @@
+require('dotenv').config()
+
 const express = require('express')
-const routes = require('./routes')
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const cors = require('cors')
-
 const PORT = 3333
+
+const routes = require('./routes')
 
 const app = express()
 

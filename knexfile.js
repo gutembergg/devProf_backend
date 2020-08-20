@@ -4,9 +4,9 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      host: '192.168.99.100',
-      user: 'docker',
-      password: 'docker',
+      host: process.env.DB_HOST,
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD,
       database: 'devprof'
     },
     migrations: {
