@@ -4,7 +4,6 @@ const ConvertHourInMin = require('../utils/convertHoursInMin')
 module.exports = {
   async index(req, res) {
     const filters = req.query
-    console.log(process.env.DB_HOST)
     try {
       if (!filters.languages || !filters.week_day || !filters.time) {
         return res.status(400).send({ error: 'Missing filters for search classes' })
@@ -87,7 +86,7 @@ module.exports = {
 
       return res.send()
     } catch (error) {
-      return res.status(400).send({ error: "Un erreur s'est produite, vouillez réesayer" })
+      return res.status(400).send(error)
     }
   }
 }
