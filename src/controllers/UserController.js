@@ -37,7 +37,20 @@ module.exports = {
   //Create User ///////////////////////////////////////////////////////////////////////////
 
   async create(req, res) {
-    const { name, avatar, whatsapp, technologies, cost, languages, schedule } = req.body
+    const { location } = req.file
+
+    const {
+      name,
+      avatar = location,
+      whatsapp,
+      technologies,
+      cost,
+      languages: lang,
+      schedule: sched
+    } = req.body
+
+    const languages = JSON.parse(lang)
+    const schedule = JSON.parse(sched)
 
     try {
       const trx = await knex.transaction()
